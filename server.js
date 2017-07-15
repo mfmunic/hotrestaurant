@@ -40,16 +40,16 @@ var waitlist = []
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/home", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
 });
 
-app.get("/make", function(req, res) {
-  res.sendFile(path.join(__dirname, "make.html"));
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Search for Specific Character (or all characters) - provides JSON
