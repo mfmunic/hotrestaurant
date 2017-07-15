@@ -61,7 +61,7 @@ app.get("/api/waitlist", function(req, res) {
   res.json(waitlist);
 });
 
-Starts the server to begin listening
+// Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
