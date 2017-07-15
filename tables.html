@@ -61,34 +61,40 @@
 
 	<script>
 
-	$.ajax({url: currentURL + "/api/tables", method: "GET"})
-            .done(function(tableData) {
+    
 
-                // Here we are logging the URL so we have access to it for troubleshooting
-                console.log("------------------------------------");
-                console.log("URL: " + currentURL + "/api/tables");
-                console.log("------------------------------------");
+    function runTableQuery(){
 
-                // Here we then log the NYTData to console, where it will show up as an object.
-                console.log(tableData);
-                console.log("------------------------------------")
+    var currentURL = window.location.origin;
 
-                // Loop through and display each of the customers
-                for (var i=0; i<tableData.length; i++){
+    	$.ajax({url: currentURL + "/api/tables", method: "GET"})
+                .done(function(tableData) {
 
-                    // Create the HTML Well (Section) and Add the table content for each reserved table
-                    var tableSection = $("<div>");
-                    tableSection.addClass('well');
-                    tableSection.attr('id', 'tableWell-' + i+1)
-                    $('#tableSection').append(tableSection);
+                    // Here we are logging the URL so we have access to it for troubleshooting
+                    console.log("------------------------------------");
+                    console.log("URL: " + currentURL + "/api/tables");
+                    console.log("------------------------------------");
 
-                    var tableNumber = i + 1;
+                    // Here we then log the NYTData to console, where it will show up as an object.
+                    console.log(tableData);
+                    console.log("------------------------------------")
+
+                    // Loop through and display each of the customers
+                    for (var i=0; i<tableData.length; i++){
+
+                        // Create the HTML Well (Section) and Add the table content for each reserved table
+                        var tableSection = $("<div>");
+                        tableSection.addClass('well');
+                        tableSection.attr('id', 'tableWell-' + i+1)
+                        $('#tableSection').append(tableSection);
+
+                        var tableNumber = i + 1;
 
 
-                    // Then display the remaining fields in the HTML (Section Name, Date, URL)
-                    $("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
-                }
-            });
+                        // Then display the remaining fields in the HTML (Section Name, Date, URL)
+                        $("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+                    }
+        });
     }
 
     function runWaitListQuery(){

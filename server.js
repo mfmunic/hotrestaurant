@@ -32,10 +32,9 @@ var tables = [{
 }, {
   table: 5,
   occ: false
+}, {
+  waitlist: []
 }];
-
-var waitlist = []
-
 // Routes
 // =============================================================
 
@@ -59,6 +58,10 @@ app.get("/api/tables", function(req, res) {
 
 app.get("/api/waitlist", function(req, res) {
   res.json(waitlist);
+});
+
+app.post("/api/tables", function(req, res) {
+  var newReservation = req.body
 });
 
 // Starts the server to begin listening
